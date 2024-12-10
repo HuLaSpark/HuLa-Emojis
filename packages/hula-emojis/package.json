@@ -3,18 +3,27 @@
   "version": "1.0.0",
   "description": "The emojis package of Hula",
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc -b && vite build",
-    "preview": "vite preview"
+    "build": "rimraf lib dist && concurrently \"pnpm run build:dist\" \"pnpm run build:lib\" -n \"dist,lib\" --kill-others-on-fail -r && pnpm run build:types",
+    "build:dist": "tsx build/rollup.config.ts",
+    "build:lib": "NODE_ENV=lib babel src --out-dir lib --source-maps --extensions \".ts\",\".tsx\",\".snap\" --copy-files --no-copy-ignored --out-file-extension .mjs",
+    "build:types": "rimraf types-temp && tsc --pretty --emitDeclarationOnly -p tsconfig.dist.json && rollup --config build/rollup.types.config.mjs && rimraf types-temp"
   },
+  "files": [
+    "dist/",
+    "lib/",
+    "CHANGELOG.md"
+  ],
   "dependencies": {
     "axios": "^1.7.9",
-    "sass": "^1.82.0",
-    "vue": "^3.5.13"
+    "sharp": "^0.33.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.16.0",
-    "vite": "^6.0.3",
-    "vue-tsc": "https://pkg.pr.new/vuejs/language-tools/vue-tsc@3fb59af"
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^12.1.1",
+    "concurrently": "^9.1.0",
+    "rollup": "^4.28.1",
+    "rollup-plugin-typescript2": "^0.36.0"
   }
 }
