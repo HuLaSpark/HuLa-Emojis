@@ -1,0 +1,60 @@
+{
+  "name": "hula-emojis",
+  "version": "1.0.0",
+  "packageManager": "pnpm@9.15.0",
+  "description": "The monorepo of Hula Emojis",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HuLaSpark/Hula-Emojis.git"
+  },
+  "scripts": {
+    "dev": "lerna run dev --scope hula-emojis --stream",
+    "clean": "lerna clean",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{css,scss}": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "*.vue": [
+      "stylelint --fix",
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.16.0",
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^22.10.1",
+    "eslint": "^9.16.0",
+    "eslint-plugin-vue": "^9.32.0",
+    "fs-extra": "^11.2.0",
+    "globals": "^15.13.0",
+    "husky": "^9.1.7",
+    "inquirer": "^12.2.0",
+    "lerna": "^8.1.9",
+    "lint-staged": "^15.2.10",
+    "ora": "^8.1.1",
+    "prettier": "^3.4.2",
+    "scss": "^0.2.4",
+    "stylelint": "^16.11.0",
+    "stylelint-config-idiomatic-order": "^10.0.0",
+    "stylelint-config-standard-vue": "^1.0.0",
+    "stylelint-declaration-block-no-ignored-properties": "^2.8.0",
+    "stylelint-high-performance-animation": "^1.10.0",
+    "stylelint-order": "^6.0.4",
+    "stylelint-prettier": "^5.0.2",
+    "stylelint-scss": "^6.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.18.0"
+  }
+}

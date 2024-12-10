@@ -1,0 +1,2 @@
+tsx scripts/pkg-manager-check.ts
+pnpm lint-staged
