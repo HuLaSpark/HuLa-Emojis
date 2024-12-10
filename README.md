@@ -9,9 +9,9 @@ Update: 2024-12-10
 >
 > 更新于 `2024-12-10 09:45:22`
 
-# Hula-Emojis
+# HuLa-Emojis
 
-Hula 表情包的 Monorepo 仓库，负责管理/打包/发布 Hula 表情包。
+HuLa 表情包的 Monorepo 仓库，负责管理/打包/发布 HuLa 表情包。
 
 Work in progress...
 
