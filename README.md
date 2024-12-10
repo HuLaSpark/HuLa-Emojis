@@ -18,6 +18,7 @@ Work in progress...
 ## 参考
 
 - [Vuetify](https://github.com/vuetifyjs/vuetify)：借鉴其Monorepo目录结构
+- [Gitmoji](https://github.com/patou/gitmoji-intellij-plugin/)：提交信息类型
 
 ## License
 

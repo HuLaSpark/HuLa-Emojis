@@ -1,5 +1,5 @@
 {
-  "name": "hula-emojis",
+  "name": "hula-emojis-monorepo",
   "version": "1.0.0",
   "packageManager": "pnpm@9.15.0",
   "description": "The monorepo of Hula Emojis",
@@ -13,7 +13,7 @@
     "prepare": "husky"
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
+    "*.{ts,tsx,mjs}": [
       "eslint --fix",
       "prettier --write"
     ],
@@ -21,7 +21,7 @@
       "stylelint --fix",
       "prettier --write"
     ],
-    "*.vue": [
+    "*.{vue,html}": [
       "stylelint --fix",
       "eslint --fix",
       "prettier --write"

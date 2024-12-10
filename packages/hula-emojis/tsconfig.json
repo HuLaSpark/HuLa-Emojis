@@ -1,0 +1,27 @@
+{
+  "extends": "../../tsconfig.json",
+  "include": [
+    "./src"
+  ],
+  "exclude": [
+    "./types"
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    //    "outDir": "./types",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "types": [
+      "node",
+      "vite/client"
+    ],
+    "typeRoots": [
+      "src/types"
+    ],
+    "stripInternal": true,
+    "skipLibCheck": false
+  }
+}
