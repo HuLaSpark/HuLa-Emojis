@@ -1,13 +1,14 @@
 {
   "name": "米游社表情包",
-  "version": "f627a47568a9f901df783f9ff9b45d99",
+  "version": "351c857ef522a35d36380c60f5fd5b03",
   "identifier": "MihoyoBbs",
-  "updateTime": 1733886892699,
+  "updateTime": 1733889835405,
   "series": [
     {
       "name": "米游兔",
       "identifier": "mihoyo-bbs-3",
       "num": 123,
+      "cover": "https://upload-bbs.mihoyo.com/upload/2022/11/14/62158b26331a045bbaabf48d1fc5c8eb_980401343708652819.png",
       "sortOrder": 2,
       "id": 3,
       "emojis": [
@@ -1001,6 +1002,7 @@
       "name": "米游社 玩家",
       "identifier": "mihoyo-bbs-12",
       "num": 12,
+      "cover": "https://img-static.mihoyo.com/communityweb/upload/606e2490ea75892c0ee787da56e96526.png",
       "sortOrder": 3,
       "id": 12,
       "emojis": [
@@ -1106,6 +1108,7 @@
       "name": "崩坏 星穹铁道",
       "identifier": "mihoyo-bbs-15",
       "num": 257,
+      "cover": "https://bbs-static.miyoushe.com/static/2024/12/04/11223f06b22745437a1f1372f245b467_590924455035403897.png",
       "sortOrder": 4,
       "id": 15,
       "emojis": [
@@ -3171,6 +3174,7 @@
       "name": "绝区零2",
       "identifier": "mihoyo-bbs-14",
       "num": 18,
+      "cover": "https://bbs-static.miyoushe.com/static/2023/04/28/ad3e4d3d37302d240339f611b2458ef9_7921317972787298019.png",
       "sortOrder": 5,
       "id": 14,
       "emojis": [
@@ -3324,6 +3328,7 @@
       "name": "NAP",
       "identifier": "mihoyo-bbs-13",
       "num": 48,
+      "cover": "https://bbs-static.miyoushe.com/static/2024/10/24/0296f44f6aa17344294e4ccca4829b5a_2147609872749895683.png",
       "sortOrder": 6,
       "id": 13,
       "emojis": [
@@ -3717,6 +3722,7 @@
       "name": "绝区零 丽都漫步",
       "identifier": "mihoyo-bbs-16",
       "num": 52,
+      "cover": "https://bbs-static.miyoushe.com/static/2024/09/29/beef9c843993cba7382e1bed414b4048_3460184305276160551.png",
       "sortOrder": 7,
       "id": 16,
       "emojis": [
@@ -4142,6 +4148,7 @@
       "name": "崩坏RPG",
       "identifier": "mihoyo-bbs-11",
       "num": 78,
+      "cover": "https://bbs-static.miyoushe.com/static/2024/12/06/6f9571054b8defed386cf3c34fec30c4_7405199634533205382.png",
       "sortOrder": 8,
       "id": 11,
       "emojis": [
@@ -4775,6 +4782,7 @@
       "name": "崩坏3-1",
       "identifier": "mihoyo-bbs-6",
       "num": 355,
+      "cover": "https://bbs-static.miyoushe.com/static/2024/10/21/35a9f9f22e6a26082e62b1ca7f39801a_7186003648705363922.png",
       "sortOrder": 9,
       "id": 6,
       "emojis": [
@@ -7624,6 +7632,7 @@
       "name": "原神 V官方",
       "identifier": "mihoyo-bbs-8",
       "num": 816,
+      "cover": "https://bbs-static.miyoushe.com/static/2024/12/05/6c0cd60b99f6056501f351d0f25db2dd_8149931657043296621.png",
       "sortOrder": 10,
       "id": 8,
       "emojis": [
@@ -14161,6 +14170,7 @@
       "name": "未定 官方",
       "identifier": "mihoyo-bbs-9",
       "num": 312,
+      "cover": "https://bbs-static.miyoushe.com/static/2024/12/05/4b52e4f49dc6505a34c78648209be464_1104981676795927299.png",
       "sortOrder": 11,
       "id": 9,
       "emojis": [
@@ -16666,6 +16676,7 @@
       "name": "原神 V玩家",
       "identifier": "mihoyo-bbs-7",
       "num": 35,
+      "cover": "https://img-static.mihoyo.com/communityweb/upload/00d9673ef4b7df0fd34a6ed4f2d9bd07.png",
       "sortOrder": 12,
       "id": 7,
       "emojis": [
@@ -16955,6 +16966,7 @@
       "name": "崩坏3-2",
       "identifier": "mihoyo-bbs-5",
       "num": 146,
+      "cover": "https://upload-bbs.mihoyo.com/upload/2022/09/20/e922be8e9ca4d6009c65cf313ccd8a5b_1168673642173283999.png",
       "sortOrder": 13,
       "id": 5,
       "emojis": [
@@ -18132,6 +18144,7 @@
       "name": "崩坏2 玩家",
       "identifier": "mihoyo-bbs-1",
       "num": 31,
+      "cover": "https://img-static.mihoyo.com/communityweb/upload/39a719a340e1b98a419c7f8e82bad2f4.png",
       "sortOrder": 14,
       "id": 1,
       "emojis": [
@@ -18389,6 +18402,7 @@
       "name": "崩坏学园2",
       "identifier": "mihoyo-bbs-4",
       "num": 134,
+      "cover": "https://bbs-static.miyoushe.com/static/2023/10/07/6feb23fa0de115295c11c3af4ab9a3b0_7714471584071518008.png",
       "sortOrder": 15,
       "id": 4,
       "emojis": [

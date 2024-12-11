@@ -47,6 +47,7 @@ function transData(data: EmojiSeries): HulaEmojiSeries {
     name: data.name,
     identifier: `mihoyo-bbs-${data.id}`,
     num: data.num,
+    cover: data.icon,
     sortOrder: data.sort_order,
     id: data.id,
     emojis: [],

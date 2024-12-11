@@ -7,7 +7,7 @@
   "type": "module",
   "packageManager": "pnpm@9.15.0",
   "scripts": {
-    "build": "tsx scripts/build.mts && tsc",
+    "build": "tsx scripts/build.mts",
     "update": "tsx scripts/update.mts "
   },
   "license": "MIT",
@@ -17,14 +17,6 @@
     "README.md",
     "types/hula-emojis.d.ts"
   ],
-  "exports": {
-    ".": {
-      "import": "./dist/data.json",
-      "require": "./dist/data.json",
-      "types": "./types/hula-emojis.d.ts",
-      "default": "./dist/data.json"
-    }
-  },
   "devDependencies": {
     "@eslint/js": "^9.16.0",
     "app-root-path": "^3.1.0",

@@ -31,14 +31,16 @@ declare type HulaEmojiItem = {
  * @property {string} name 表情包系列名称
  * @property {string} identifier 表情包系列标识符
  * @property {number} num 表情包数量
+ * @property {string} cover 表情包封面
  * @property [number] sortOrder 排序序号
  * @property [number] id 系列ID
  * @property {HulaEmojiItem[]} emojis 表情包列表
  */
-export type HulaEmojiSeries = {
+export declare type HulaEmojiSeries = {
   name: string;
   identifier: string;
   num: number;
+  cover: string;
   sortOrder?: number;
   id?: number;
   emojis: HulaEmojiItem[];
@@ -59,13 +61,13 @@ declare enum HulaEmojiTypeEnum {
  * @since 1.0.0
  * @type HulaEmojiType
  */
-export type HulaEmojiType = keyof typeof HulaEmojiTypeEnum;
+export declare type HulaEmojiType = keyof typeof HulaEmojiTypeEnum;
 
 /**
  * @description 表情包元数据类型
  * @since 1.0.0
  */
-export type HulaEmojiData = {
+export declare type HulaEmojiData = {
   name: string;
   version: string;
   identifier: HulaEmojiType;
@@ -74,4 +76,3 @@ export type HulaEmojiData = {
 };
 export const HulaEmojis: Record<HulaEmojiType, HulaEmojiData>;
 export default HulaEmojis;
-export as namespace HulaEmojis;
