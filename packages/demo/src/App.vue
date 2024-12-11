@@ -7,9 +7,9 @@
       </div>
     </div>
     <div v-else class="empty">没有选中的表情包系列</div>
-    <div class="emoji-series">
+    <div class="emoji-series" v-if="currentType !== null">
       <div
-        v-for="series in HulaEmojis.MihoyoBbs.series"
+        v-for="series in HulaEmojis[currentType].series"
         :key="series.identifier"
         @click="currentSeries = series"
       >
@@ -20,10 +20,17 @@
   </div>
 </template>
 <script setup lang="ts">
-import HulaEmojis, { type HulaEmojiSeries } from "hula-emojis";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+import HulaEmojis, { type HulaEmojiSeries, type HulaEmojiType } from "hula-emojis";
 
 const currentSeries = ref<HulaEmojiSeries | null>(null);
+const currentType = ref<HulaEmojiType>("MihoyoBbs");
+const types = Object.keys(HulaEmojis) as HulaEmojiType[];
+
+onMounted(() => {
+  currentType.value = types[0];
+  currentSeries.value = HulaEmojis[currentType.value].series[0];
+});
 </script>
 
 <style lang="scss" scoped>

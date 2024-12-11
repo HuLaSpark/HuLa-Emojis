@@ -9,11 +9,11 @@
   },
   "scripts": {
     "dev": "lerna run dev --scope demo --stream",
-    "clean": "lerna clean",
+    "clean": "lerna clean -y",
     "prepare": "husky"
   },
   "lint-staged": {
-    "*.{ts,tsx,mjs}": [
+    "*.{ts,tsx,mjs,mts}": [
       "eslint --fix",
       "prettier --write"
     ],
@@ -24,6 +24,9 @@
     "*.{vue,html}": [
       "stylelint --fix",
       "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,d.ts}": [
       "prettier --write"
     ]
   },
@@ -39,10 +42,9 @@
     "globals": "^15.13.0",
     "husky": "^9.1.7",
     "lerna": "^8.1.9",
-    "lint-staged": "^15.2.10",
+    "lint-staged": "^15.2.11",
     "ora": "^8.1.1",
     "prettier": "^3.4.2",
-    "scss": "^0.2.4",
     "stylelint": "^16.11.0",
     "stylelint-config-idiomatic-order": "^10.0.0",
     "stylelint-config-standard-vue": "^1.0.0",

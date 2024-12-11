@@ -2,30 +2,22 @@ name: Publish
 
 on:
   push:
-    branches: [ "master" ]
+    tags:
+      - 'v*'
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
         with:
-          node-version: 20
-          cache: 'npm'
-
-      - name: Install Dependencies
-        run: npm ci
-
-      - name: Build
-        run: npm run build
-
-      - name: Release
-        run: npx semantic-release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          node-version: '23'
+      - uses: pnpm/action-setup@v2
+        with:
+          version: '9.15.0'
+      - run: pnpm install
+      - run: cd packages/hula-emojis && pnpm build && npm publish
+        with:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
