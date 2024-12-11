@@ -19,6 +19,7 @@ Work in progress...
 
 - [Vuetify](https://github.com/vuetifyjs/vuetify)：借鉴其Monorepo目录结构
 - [Gitmoji](https://github.com/patou/gitmoji-intellij-plugin/)：提交信息类型
+- [bangumi-data](https://github.com/bangumi-data/bangumi-data)：打包发布流程
 
 ## License
 

@@ -2,28 +2,37 @@
   "name": "hula-emojis",
   "version": "1.0.0",
   "description": "The emojis package of Hula",
+  "main": "dist/data.json",
+  "types": "hula-emojis.d.ts",
+  "type": "module",
+  "packageManager": "pnpm@9.15.0",
   "scripts": {
-    "build": "rimraf lib dist && concurrently \"pnpm run build:dist\" \"pnpm run build:lib\" -n \"dist,lib\" --kill-others-on-fail -r && pnpm run build:types",
-    "build:dist": "tsx build/rollup.config.ts",
-    "build:lib": "NODE_ENV=lib babel src --out-dir lib --source-maps --extensions \".ts\",\".tsx\",\".snap\" --copy-files --no-copy-ignored --out-file-extension .mjs",
-    "build:types": "rimraf types-temp && tsc --pretty --emitDeclarationOnly -p tsconfig.dist.json && rollup --config build/rollup.types.config.mjs && rimraf types-temp"
+    "build": "tsx scripts/build.mts && tsc",
+    "update": "tsx scripts/update.mts "
   },
+  "license": "MIT",
   "files": [
-    "dist/",
-    "lib/",
-    "CHANGELOG.md"
+    "dist",
+    "CHANGELOG.md",
+    "README.md",
+    "types/hula-emojis.d.ts"
   ],
-  "dependencies": {
-    "axios": "^1.7.9",
-    "sharp": "^0.33.5"
+  "exports": {
+    ".": {
+      "import": "./dist/data.json",
+      "require": "./dist/data.json",
+      "types": "./types/hula-emojis.d.ts",
+      "default": "./dist/data.json"
+    }
   },
   "devDependencies": {
     "@eslint/js": "^9.16.0",
-    "@rollup/plugin-node-resolve": "^15.3.0",
-    "@rollup/plugin-terser": "^0.4.4",
-    "@rollup/plugin-typescript": "^12.1.1",
-    "concurrently": "^9.1.0",
-    "rollup": "^4.28.1",
-    "rollup-plugin-typescript2": "^0.36.0"
+    "app-root-path": "^3.1.0",
+    "axios": "^1.7.9",
+    "eslint": "^9.16.0",
+    "globals": "^15.13.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.18.0"
   }
 }

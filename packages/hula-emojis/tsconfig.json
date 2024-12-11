@@ -1,26 +1,44 @@
 {
-  "extends": "../../tsconfig.json",
   "include": [
-    "./src"
-  ],
-  "exclude": [
-    "./types"
+    "scripts/*.mts",
+    "lib/*.mts",
+    "./types/hula-emojis.d.ts"
   ],
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/*": [
-        "src/*"
-      ]
-    },
-    "types": [
-      "node",
-      "vite/client"
+    "target": "ESNext",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "declaration": true,
+    "outDir": "dist",
+    "strict": true,
+    "lib": [
+      "ESNext"
     ],
     "typeRoots": [
-      "src/types"
+      "types"
     ],
+    "baseUrl": ".",
     "stripInternal": true,
-    "skipLibCheck": false
-  }
+    "skipLibCheck": false,
+    "esModuleInterop": true,
+    "allowImportingTsExtensions": true,
+    "emitDeclarationOnly": true,
+    "declarationMap": false,
+    "declarationDir": "dist",
+    "rootDir": ".",
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": false,
+    "noEmitOnError": true,
+    "noEmitHelpers": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true
+  },
+  "exclude": [
+    "node_modules"
+  ]
 }
