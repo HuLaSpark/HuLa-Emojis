@@ -18,6 +18,12 @@ jobs:
         with:
           version: '9.15.0'
       - run: pnpm install
-      - run: cd packages/hula-emojis && pnpm build && npm publish
-        with:
+      - run: |
+          cd packages/hula-emojis
+          pnpm update
+          pnpm build
+          npm login --registry=https://registry.npmjs.org --scope=@btmuli
+          npm publish
+
+        env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

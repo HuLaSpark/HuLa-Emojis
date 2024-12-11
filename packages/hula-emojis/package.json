@@ -10,6 +10,10 @@
     "build": "tsx scripts/build.mts",
     "update": "tsx scripts/update.mts "
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "license": "MIT",
   "files": [
     "dist",

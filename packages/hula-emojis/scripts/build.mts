@@ -26,6 +26,7 @@ for (const file of files) {
 spinner.succeed("数据处理完成");
 spinner.start("正在写入数据...");
 const dataPath = getRelativePath("dist", "data.json");
+fs.createFileSync(dataPath);
 await fs.writeJSON(dataPath, res, { spaces: 0 });
 spinner.succeed(`数据写入完成: ${dataPath}`);
 const cost = Date.now() - start;
