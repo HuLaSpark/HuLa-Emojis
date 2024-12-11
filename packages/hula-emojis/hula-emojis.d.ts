@@ -1,7 +1,7 @@
 /**
  * @file hu-emojis.d.ts
  * @description 表情包类型定义
- * @since 1.0.0
+ * @since 1.2.0
  */
 
 /**
@@ -48,13 +48,16 @@ export declare type HulaEmojiSeries = {
 
 /**
  * @description 表情包类型
- * @since 1.1.0
+ * @since 1.2.0
  * @type HulaEmojiTypeEnum
  * @property {MihoyoBbs} MihoyoBbs 米游社表情包
+ * @property {Bilibili} Bilibili Bilibili表情包
+ * @property {Zhihu} Zhihu 知乎表情包
  */
 declare enum HulaEmojiTypeEnum {
   MihoyoBbs,
   Bilibili,
+  Zhihu,
 }
 
 /**

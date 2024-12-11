@@ -5,7 +5,7 @@ import pluginVue from "eslint-plugin-vue";
 
 /** @type {import("eslint").Linter.Config[]} */
 export default [
-  { files: ["**/*.{js,mjs,cjs,ts,vue}"] },
+  { files: ["**/*.{js,mjs,cjs,ts,vue,mts}"] },
   { languageOptions: { globals: { ...globals.browser, ...globals.node, HulaEmojis: true } } },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,

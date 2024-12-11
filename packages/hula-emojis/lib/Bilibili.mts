@@ -7,7 +7,7 @@
 import axios, { type AxiosResponse } from "axios";
 import fs from "fs-extra";
 import ora from "ora";
-import type { HulaEmojiData, HulaEmojiSeries } from "../hula-emojis";
+import type { HulaEmojiData, HulaEmojiSeries } from "../hula-emojis.js";
 import { getRelativePath } from "../utils/getRelativePath.mjs";
 import { createHash } from "node:crypto";
 
