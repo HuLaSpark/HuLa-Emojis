@@ -73,6 +73,7 @@ const commitMsgTypes: CommitMsgType[] = [
   { value: "💸 ", name: "💸 添加或更新付款/收款功能" },
   { value: "🧵 ", name: "🧵 添加或更新线程" },
   { value: "🦺 ", name: "🦺 添加或更新安全功能" },
+  { value: "📦️ ", name: "📦️ 更新打包文件" },
 ];
 
 export default commitMsgTypes;
