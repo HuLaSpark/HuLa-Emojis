@@ -13,14 +13,16 @@ import { createHash } from "node:crypto";
 
 const spinner = ora("正在获取米游社表情包...").start();
 const start = Date.now();
-const resp = await axios.get<never, AxiosResponse<MihoyoBbsEmojiResp>>("https://bbs-api-static.miyoushe.com/misc/api/emoticon_set");
+const resp = await axios.get<never, AxiosResponse<MihoyoBbsEmojiResp>>(
+  "https://bbs-api-static.miyoushe.com/misc/api/emoticon_set",
+);
 if (resp.data.retcode !== 0) {
   spinner.fail(`获取米游社表情包失败: ${resp.data.retcode} - ${resp.data.message}`);
   process.exit(1);
 }
 spinner.succeed("获取米游社表情包成功");
 spinner.start("正在处理数据...");
-let bbsEmojiData: HulaEmojiData = {
+const bbsEmojiData: HulaEmojiData = {
   name: "米游社表情包",
   version: "1.0.0",
   identifier: "MihoyoBbs",
@@ -34,6 +36,7 @@ for (const seriesItem of resp.data.data.list) {
 bbsEmojiData.version = createHash("md5").update(JSON.stringify(bbsEmojiData.series)).digest("hex");
 spinner.succeed("数据处理完成");
 spinner.start("正在写入数据...");
+bbsEmojiData.series.sort((a, b) => a.sortOrder! - b.sortOrder!);
 const dataPath = getRelativePath("data", "mihoyo-bbs.json");
 await fs.writeJson(dataPath, bbsEmojiData, { spaces: 2 });
 spinner.succeed(`数据写入完成: ${dataPath}`);
@@ -43,7 +46,7 @@ spinner.stop();
 
 /// 使用到的方法 ///
 function transData(data: EmojiSeries): HulaEmojiSeries {
-  let series: HulaEmojiSeries = {
+  const series: HulaEmojiSeries = {
     name: data.name,
     identifier: `mihoyo-bbs-${data.id}`,
     num: data.num,
@@ -100,10 +103,14 @@ type EmojiResp = {
  * @type EmojiStatus
  *
  */
+
+/* eslint-disable */
 enum EmojiStatus {
   draft,
   published,
 }
+
+/* eslint-enable */
 
 /**
  * @description 表情包系列数据

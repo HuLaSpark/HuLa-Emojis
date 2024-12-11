@@ -48,12 +48,13 @@ export declare type HulaEmojiSeries = {
 
 /**
  * @description 表情包类型
- * @since 1.0.0
+ * @since 1.1.0
  * @type HulaEmojiTypeEnum
  * @property {MihoyoBbs} MihoyoBbs 米游社表情包
  */
 declare enum HulaEmojiTypeEnum {
   MihoyoBbs,
+  Bilibili,
 }
 
 /**
