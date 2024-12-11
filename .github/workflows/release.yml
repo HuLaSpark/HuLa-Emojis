@@ -22,6 +22,7 @@ jobs:
           cd packages/hula-emojis
           pnpm update
           pnpm build
+          npm adduser --registry https://registry.npmjs.org/ --scope=@btmuli
           npm publish
 
         env:
