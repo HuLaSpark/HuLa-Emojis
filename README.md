@@ -10,6 +10,8 @@ Update: 2024-12-11
 > 更新于 `2024-12-11 14:28:56`
 
 # HuLa-Emojis
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHuLaSpark%2FHuLa-Emojis.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FHuLaSpark%2FHuLa-Emojis?ref=badge_shield)
+
 
 HuLa 表情包的 Monorepo 仓库，负责管理/打包/发布 HuLa 表情包。
 
@@ -36,3 +38,6 @@ const emojisBbs = HulaEmojis.MihoyoBbs;
 ## License
 
 项目遵循 [MIT License](./LICENSE.md) 开源协议。
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHuLaSpark%2FHuLa-Emojis.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FHuLaSpark%2FHuLa-Emojis?ref=badge_large)
