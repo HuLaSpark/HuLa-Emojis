@@ -1,7 +1,7 @@
 /**
  * @file scripts/build.ts
  * @description 构建脚本
- * @since 1.0.0
+ * @since 1.2.1
  */
 
 import fs from "fs-extra";
