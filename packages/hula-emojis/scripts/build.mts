@@ -13,12 +13,12 @@ const spinner = ora("正在构建数据...").start();
 const start = Date.now();
 const dataDir = getRelativePath("data");
 const files = fs.readdirSync(dataDir);
-let res: Record<HulaEmojiType, HulaEmojiData> | undefined = undefined;
+type HulaEmojiDist = { [key in HulaEmojiType]?: HulaEmojiData };
+let res: HulaEmojiDist | undefined = undefined;
 for (const file of files) {
   spinner.start(`正在处理文件: ${file}`);
   const rawData: HulaEmojiData = await fs.readJson(getRelativePath("data", file));
-  if (res === undefined)
-    res = { [rawData.identifier]: rawData } as Record<HulaEmojiType, HulaEmojiData>;
+  if (res === undefined) res = { [rawData.identifier]: rawData };
   else res[rawData.identifier] = rawData;
 }
 spinner.succeed("数据处理完成");
