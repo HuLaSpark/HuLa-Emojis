@@ -6,24 +6,21 @@
 
 import fs from "fs-extra";
 import { getRelativePath } from "../utils/getRelativePath.mjs";
-import type { HulaEmojiData } from "../hula-emojis.d.ts";
+import type { HulaEmojiData, HulaEmojiType } from "../hula-emojis.d.ts";
 import ora from "ora";
 
 const spinner = ora("正在构建数据...").start();
 const start = Date.now();
 const dataDir = getRelativePath("data");
 const files = fs.readdirSync(dataDir);
-
-const res: Record<string, HulaEmojiData> = {};
-
+let res: Record<HulaEmojiType, HulaEmojiData> | undefined = undefined;
 for (const file of files) {
   spinner.start(`正在处理文件: ${file}`);
-  const data: HulaEmojiData = await fs.readJson(getRelativePath("data", file));
-  if (data) {
-    res[data.identifier] = data;
-  }
+  const rawData: HulaEmojiData = await fs.readJson(getRelativePath("data", file));
+  if (res === undefined)
+    res = { [rawData.identifier]: rawData } as Record<HulaEmojiType, HulaEmojiData>;
+  else res[rawData.identifier] = rawData;
 }
-
 spinner.succeed("数据处理完成");
 spinner.start("正在写入数据...");
 const dataPath = getRelativePath("dist", "data.json");
