@@ -2,8 +2,16 @@
   <div class="demo">
     <div class="container" v-if="currentSeries !== null">
       <div class="emoji-item" v-for="item in currentSeries.emojis" :key="item.identifier">
-        <img :src="item.url" :alt="item.name" class="logo" />
-        <div>{{ item.name }}</div>
+        <img
+          :src="item.url"
+          :alt="item.name"
+          class="logo"
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
+          v-if="item.url.startsWith('http')"
+        />
+        <div v-else class="text">{{ item.url }}</div>
+        <div>{{ item.name ?? item.url }}</div>
       </div>
     </div>
     <div v-else class="empty">没有选中的表情包系列</div>
@@ -13,7 +21,13 @@
         :key="series.identifier"
         @click="currentSeries = series"
       >
-        <img :src="series.cover" :alt="series.name" class="logo" />
+        <img
+          :src="series.cover"
+          :alt="series.name"
+          class="logo"
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
+        />
         <div>{{ series.name }}</div>
       </div>
     </div>
@@ -56,6 +70,11 @@ onMounted(() => {
       width: 3rem;
       height: 3rem;
       border-radius: 50%;
+    }
+
+    .text {
+      white-space: nowrap;
+      font-weight: bold;
     }
   }
 
