@@ -10,6 +10,7 @@
   "scripts": {
     "dev": "lerna run dev --scope demo --stream",
     "clean": "lerna clean -y",
+    "auto-update": "tsx scripts/auto-update.ts",
     "prepare": "husky"
   },
   "lint-staged": {

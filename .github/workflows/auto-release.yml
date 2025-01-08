@@ -1,0 +1,35 @@
+name: AutoPublish
+on:
+  schedule:
+    - cron: '0 0 15 * *' # 每个月的 15 号
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '23'
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: '9.15.0'
+      - name: Install Dependencies
+        run: pnpm install
+      - name: Update Tag
+        run: pnpm auto-update
+      - name: Get Tag
+        id: version
+        run: echo "VERSION=$(node -p 'require(`./packages/hula-emojis/package.json`).version')" >> $GITHUB_ENV
+      - name: Commit Changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "🍱 Update version to ${{ env.VERSION }}"
+          git tag v${{ env.VERSION }}
+          git push origin HEAD:main --follow-tags
