@@ -1,5 +1,6 @@
 name: AutoPublish
 on:
+  workflow_dispatch:
   schedule:
     - cron: '0 0 15 * *' # 每个月的 15 号
 
