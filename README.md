@@ -1,21 +1,10 @@
----
-Author: 目棃
-Description: Hula-Emojis说明文档
-Date: 2024-12-10
-Update: 2024-12-11
----
-
-> 本文档 [`Frontmatter`](https://github.com/BTMuli/MuCli#Frontmatter) 由 [MuCli](https://github.com/BTMuli/Mucli) 自动生成于 `2024-12-10 09:45:22`
->
-> 更新于 `2024-12-11 14:28:56`
-
 # HuLa-Emojis
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHuLaSpark%2FHuLa-Emojis.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FHuLaSpark%2FHuLa-Emojis?ref=badge_shield)
 
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHuLaSpark%2FHuLa-Emojis.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FHuLaSpark%2FHuLa-Emojis?ref=badge_shield)
+[![NPM Version](https://img.shields.io/npm/v/hula-emojis?style=flat-square)](https://npmjs.org/package/hula-emojis)
+![GitHub last commit](https://img.shields.io/github/last-commit/HuLaSpark/HuLa-Emojis?style=flat-square)
 
 HuLa 表情包的 Monorepo 仓库，负责管理/打包/发布 HuLa 表情包。
-
-Work in progress...
 
 ## 参考
 

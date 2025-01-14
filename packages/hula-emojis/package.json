@@ -5,7 +5,7 @@
   "main": "dist/data.json",
   "types": "hula-emojis.d.ts",
   "type": "module",
-  "packageManager": "pnpm@9.15.3",
+  "packageManager": "pnpm@9.15.4",
   "scripts": {
     "status": "tsx scripts/status.mts",
     "build": "tsx scripts/build.mts && tsx scripts/status.mts",
@@ -20,16 +20,17 @@
     "dist",
     "CHANGELOG.md",
     "README.md",
-    "hula-emojis.d.ts"
+    "hula-emojis.d.ts",
+    "LICENSE.md"
   ],
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
     "fs-extra": "^11.2.0",
     "ora": "^8.1.1",
-    "@types/node": "^22.10.5",
+    "@types/node": "^22.10.6",
     "app-root-path": "^3.1.0",
     "axios": "^1.7.9",
     "tsx": "^4.19.2",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.3"
   }
 }

@@ -14,6 +14,7 @@
  * @property [string] staticUrl 静态表情包地址
  * @property [number] id 表情包ID
  * @property [number] sortOrder 排序序号
+ * @return HulaEmojiItem
  */
 declare type HulaEmojiItem = {
   name: string;
@@ -35,6 +36,7 @@ declare type HulaEmojiItem = {
  * @property [number] sortOrder 排序序号
  * @property [number] id 系列ID
  * @property {HulaEmojiItem[]} emojis 表情包列表
+ * @return HulaEmojiSeries
  */
 export declare type HulaEmojiSeries = {
   name: string;
@@ -70,6 +72,13 @@ export declare type HulaEmojiType = keyof typeof HulaEmojiTypeEnum;
 /**
  * @description 表情包元数据类型
  * @since 1.0.0
+ * @type HulaEmojiData
+ * @property {string} name 平台名称
+ * @property {string} version 版本号
+ * @property {HulaEmojiType} identifier 平台标识符
+ * @property {number} updateTime 更新时间
+ * @property {HulaEmojiSeries[]} series 表情包系列列表
+ * @return HulaEmojiData
  */
 export declare type HulaEmojiData = {
   name: string;
