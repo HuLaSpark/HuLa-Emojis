@@ -1,13 +1,13 @@
 {
   "name": "Bilibili表情包",
-  "version": "31193493d794f2827939a0499d5e8f25",
+  "version": "a756faa8227becf1b8271585fcd6ddba",
   "identifier": "Bilibili",
-  "updateTime": 1736303359306,
+  "updateTime": 1736902917347,
   "series": [
     {
       "name": "小黄脸",
       "identifier": "bilibili-1",
-      "num": 184,
+      "num": 185,
       "cover": "https://i0.hdslb.com/bfs/emote/3087d273a78ccaff4bb1e9972e2ba2a7583c9f11.png",
       "id": 1,
       "emojis": [
@@ -47,14 +47,14 @@
           "url": "https://i0.hdslb.com/bfs/emote/431432c43da3ee5aab5b0e4f8931953e649e9975.png"
         },
         {
-          "name": "doge",
-          "identifier": "bilibili-1-26",
-          "url": "https://i0.hdslb.com/bfs/emote/3087d273a78ccaff4bb1e9972e2ba2a7583c9f11.png"
-        },
-        {
           "name": "OK",
           "identifier": "bilibili-1-1950",
           "url": "https://i0.hdslb.com/bfs/emote/4683fd9ffc925fa6423110979d7dcac5eda297f4.png"
+        },
+        {
+          "name": "doge",
+          "identifier": "bilibili-1-26",
+          "url": "https://i0.hdslb.com/bfs/emote/3087d273a78ccaff4bb1e9972e2ba2a7583c9f11.png"
         },
         {
           "name": "大哭",
@@ -72,14 +72,14 @@
           "url": "https://i0.hdslb.com/bfs/emote/d15121545a99ac46774f1f4465b895fe2d1411c3.png"
         },
         {
-          "name": "呲牙",
-          "identifier": "bilibili-1-1902",
-          "url": "https://i0.hdslb.com/bfs/emote/b5a5898491944a4268360f2e7a84623149672eb6.png"
-        },
-        {
           "name": "喜极而泣",
           "identifier": "bilibili-1-791",
           "url": "https://i0.hdslb.com/bfs/emote/485a7e0c01c2d70707daae53bee4a9e2e31ef1ed.png"
+        },
+        {
+          "name": "呲牙",
+          "identifier": "bilibili-1-1902",
+          "url": "https://i0.hdslb.com/bfs/emote/b5a5898491944a4268360f2e7a84623149672eb6.png"
         },
         {
           "name": "歪嘴",
@@ -117,14 +117,14 @@
           "url": "https://i0.hdslb.com/bfs/emote/81edf17314cea3b48674312b4364df44d5c01f17.png"
         },
         {
-          "name": "脸红",
-          "identifier": "bilibili-1-5406",
-          "url": "https://i0.hdslb.com/bfs/emote/0922c375da40e6b69002bd89b858572f424dcfca.png"
-        },
-        {
           "name": "给心心",
           "identifier": "bilibili-1-3302",
           "url": "https://i0.hdslb.com/bfs/emote/1597302b98827463f5b75c7cac1f29ea6ce572c4.png"
+        },
+        {
+          "name": "脸红",
+          "identifier": "bilibili-1-5406",
+          "url": "https://i0.hdslb.com/bfs/emote/0922c375da40e6b69002bd89b858572f424dcfca.png"
         },
         {
           "name": "嘟嘟",
@@ -147,14 +147,14 @@
           "url": "https://i0.hdslb.com/bfs/emote/92b1c8cbceea3ae0e8e32253ea414783e8ba7806.png"
         },
         {
-          "name": "嫌弃",
-          "identifier": "bilibili-1-2",
-          "url": "https://i0.hdslb.com/bfs/emote/de4c0783aaa60ec03de0a2b90858927bfad7154b.png"
-        },
-        {
           "name": "害羞",
           "identifier": "bilibili-1-6",
           "url": "https://i0.hdslb.com/bfs/emote/9d2ec4e1fbd6cb1b4d12d2bbbdd124ccb83ddfda.png"
+        },
+        {
+          "name": "嫌弃",
+          "identifier": "bilibili-1-2",
+          "url": "https://i0.hdslb.com/bfs/emote/de4c0783aaa60ec03de0a2b90858927bfad7154b.png"
         },
         {
           "name": "疑惑",
@@ -202,14 +202,14 @@
           "url": "https://i0.hdslb.com/bfs/emote/0afecaf3a3499479af946f29749e1a6c285b6f65.png"
         },
         {
-          "name": "无语",
-          "identifier": "bilibili-1-7",
-          "url": "https://i0.hdslb.com/bfs/emote/44667b7d9349957e903b1b62cb91fb9b13720f04.png"
-        },
-        {
           "name": "点赞",
           "identifier": "bilibili-1-25",
           "url": "https://i0.hdslb.com/bfs/emote/1a67265993913f4c35d15a6028a30724e83e7d35.png"
+        },
+        {
+          "name": "无语",
+          "identifier": "bilibili-1-7",
+          "url": "https://i0.hdslb.com/bfs/emote/44667b7d9349957e903b1b62cb91fb9b13720f04.png"
         },
         {
           "name": "鼓掌",
@@ -227,14 +227,14 @@
           "url": "https://i0.hdslb.com/bfs/emote/43d3db7d97343c01b47e22cfabeca84b4251f35a.png"
         },
         {
-          "name": "委屈",
-          "identifier": "bilibili-1-8",
-          "url": "https://i0.hdslb.com/bfs/emote/d2f26cbdd6c96960320af03f5514c5b524990840.png"
-        },
-        {
           "name": "傲娇",
           "identifier": "bilibili-1-20",
           "url": "https://i0.hdslb.com/bfs/emote/010540d0f61220a0db4922e4a679a1d8eca94f4e.png"
+        },
+        {
+          "name": "委屈",
+          "identifier": "bilibili-1-8",
+          "url": "https://i0.hdslb.com/bfs/emote/d2f26cbdd6c96960320af03f5514c5b524990840.png"
         },
         {
           "name": "疼",
@@ -332,6 +332,11 @@
           "url": "https://i0.hdslb.com/bfs/emote/4dae851bd07b91418824ba3897659b7b9017114d.png"
         },
         {
+          "name": "佛系",
+          "identifier": "bilibili-1-100781",
+          "url": "https://i0.hdslb.com/bfs/emote/89c70d9044637a66fceaf99d89b257984117ce36.png"
+        },
+        {
           "name": "金箍",
           "identifier": "bilibili-1-83967",
           "url": "https://i0.hdslb.com/bfs/emote/fb3fbcf44157a5ba460b62341a86b38c11e7a664.png"
@@ -347,14 +352,14 @@
           "url": "https://i0.hdslb.com/bfs/emote/3d1dbe52ea16e12ff7b1c371196f728a4097fb33.png"
         },
         {
-          "name": "吃面",
-          "identifier": "bilibili-1-97384",
-          "url": "https://i0.hdslb.com/bfs/emote/7277d90e321bf4407377ff18cc0bfcde106234d9.png"
-        },
-        {
           "name": "开心",
           "identifier": "bilibili-1-97385",
           "url": "https://i0.hdslb.com/bfs/emote/40dabdb3237a9d8c726f663360d7e967eac3ac01.png"
+        },
+        {
+          "name": "吃面",
+          "identifier": "bilibili-1-97384",
+          "url": "https://i0.hdslb.com/bfs/emote/7277d90e321bf4407377ff18cc0bfcde106234d9.png"
         },
         {
           "name": "睡觉",
