@@ -19,15 +19,11 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: '9.15.0'
+          version: '10.0.0'
       - name: Install Dependencies
         run: pnpm install
       - name: Update Tag
         run: pnpm auto-update
-      - name: Update data
-        run: |
-          cd packages/hula-emojis
-          pnpm update
       - name: Get Tag
         id: version
         run: echo "VERSION=$(node -p 'require(`./packages/hula-emojis/package.json`).version')" >> $GITHUB_ENV
@@ -43,6 +39,7 @@ jobs:
       - name: Publish Package
         run: |
           cd packages/hula-emojis
+          pnpm update
           pnpm build
           npm publish
         env:

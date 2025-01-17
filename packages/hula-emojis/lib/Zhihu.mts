@@ -1,7 +1,7 @@
 /**
  * @file lib/Zhihu.ts
  * @description 知乎表情包处理
- * @since 1.2.0
+ * @since 1.2.6
  */
 import { HulaEmojiData, HulaEmojiSeries } from "../hula-emojis.js";
 import ora from "ora";
@@ -45,6 +45,8 @@ res.version = createHash("md5").update(JSON.stringify(res.series)).digest("hex")
 spinner.start("正在写入数据...");
 const dataPath = getRelativePath("data", "zhihu.json");
 res.series.sort((a, b) => a.id! - b.id!);
+if (!fs.existsSync(getRelativePath("data"))) fs.mkdirSync(getRelativePath("data"));
+if (!fs.existsSync(dataPath)) fs.createFileSync(dataPath);
 await fs.writeJson(dataPath, res, { spaces: 2 });
 spinner.succeed(`数据写入完成: ${dataPath}`);
 const end = Date.now();

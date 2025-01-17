@@ -1,7 +1,7 @@
 /**
  * @file lib/MihoyoBbs.ts
  * @description 米游社表情包处理
- * @since 1.0.0
+ * @since 1.2.6
  */
 
 import axios, { type AxiosResponse } from "axios";
@@ -38,6 +38,8 @@ spinner.succeed("数据处理完成");
 spinner.start("正在写入数据...");
 bbsEmojiData.series.sort((a, b) => a.sortOrder! - b.sortOrder!);
 const dataPath = getRelativePath("data", "mihoyo-bbs.json");
+if (!fs.existsSync(getRelativePath("data"))) fs.mkdirSync(getRelativePath("data"));
+if (!fs.existsSync(dataPath)) fs.createFileSync(dataPath);
 await fs.writeJson(dataPath, bbsEmojiData, { spaces: 2 });
 spinner.succeed(`数据写入完成: ${dataPath}`);
 const end = Date.now();

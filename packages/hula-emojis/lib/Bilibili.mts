@@ -1,7 +1,7 @@
 /**
  * @file lib/Bilibili.ts
  * @description Bilibili表情包处理
- * @since 1.1.0
+ * @since 1.2.6
  */
 
 import axios, { type AxiosResponse } from "axios";
@@ -49,6 +49,8 @@ spinner.succeed("数据处理完成");
 spinner.start("正在写入数据...");
 const dataPath = getRelativePath("data", "bilibili.json");
 biliEmojiData.series.sort((a, b) => a.id! - b.id!);
+if (!fs.existsSync(getRelativePath("data"))) fs.mkdirSync(getRelativePath("data"));
+if (!fs.existsSync(dataPath)) fs.createFileSync(dataPath);
 await fs.writeJson(dataPath, biliEmojiData, { spaces: 2 });
 spinner.succeed(`数据写入完成: ${dataPath}`);
 const end = Date.now();
