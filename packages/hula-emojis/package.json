@@ -1,6 +1,6 @@
 {
   "name": "hula-emojis",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "The emojis package of Hula",
   "main": "dist/data.json",
   "types": "hula-emojis.d.ts",
@@ -25,11 +25,11 @@
   ],
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
-    "fs-extra": "^11.2.0",
-    "ora": "^8.1.1",
-    "@types/node": "^22.10.6",
+    "@types/node": "^22.10.7",
     "app-root-path": "^3.1.0",
     "axios": "^1.7.9",
+    "fs-extra": "^11.3.0",
+    "ora": "^8.1.1",
     "tsx": "^4.19.2",
     "typescript": "^5.7.3"
   }
