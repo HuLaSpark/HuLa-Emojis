@@ -2,7 +2,7 @@ name: AutoPublish
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 15 * *' # 每个月的 15 号
+    - cron: '0 18 * * 5' # 每周五下午6点
 
 jobs:
   build:
