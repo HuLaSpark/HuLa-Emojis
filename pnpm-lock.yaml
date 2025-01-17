@@ -114,6 +114,9 @@ importers:
       fs-extra:
         specifier: ^11.3.0
         version: 11.3.0
+      markdown-table-ts:
+        specifier: ^1.0.3
+        version: 1.0.3
       ora:
         specifier: ^8.1.1
         version: 8.1.1
@@ -2441,6 +2444,9 @@ packages:
   map-obj@4.3.0:
     resolution: {integrity: sha512-hdN1wVrZbb29eBGiGjJbeP8JbKjq1urkHJ/LIP/NY48MZ1QVXUsQBV1G1zvYFHn1XE06cwjBsOI2K3Ulnj1YXQ==}
     engines: {node: '>=8'}
+
+  markdown-table-ts@1.0.3:
+    resolution: {integrity: sha512-lYrp7FXmBqpmGmsEF92WnSukdgYvLm15FPIODZOx9+3nobkxJxjBYcszqZf5VqTjBtISPSNC7zjU9o3zwpL6AQ==}
 
   mathml-tag-names@2.1.3:
     resolution: {integrity: sha512-APMBEanjybaPzUrfqU0IMU5I0AswKMH7k8OTLs0vvV4KZpExkTkY87nR/zpbuTPj+gARop7aGUbl11pnDfW6xg==}
@@ -6207,6 +6213,8 @@ snapshots:
   map-obj@1.0.1: {}
 
   map-obj@4.3.0: {}
+
+  markdown-table-ts@1.0.3: {}
 
   mathml-tag-names@2.1.3: {}
 
