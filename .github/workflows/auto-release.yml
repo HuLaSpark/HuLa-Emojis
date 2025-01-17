@@ -22,24 +22,35 @@ jobs:
           version: '10.0.0'
       - name: Install Dependencies
         run: pnpm install
-      - name: Update Tag
-        run: pnpm auto-update
-      - name: Get Tag
-        id: version
-        run: echo "VERSION=$(node -p 'require(`./packages/hula-emojis/package.json`).version')" >> $GITHUB_ENV
-      - name: Commit Changes
+      - name: Try Update
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+          cd packages/hula-emojis
+          pnpm build
+      - name: Check for Changes
+        id: check
+        run: |
+          git diff --exit-code || (echo "::set-output name=changed::true" && git diff)
+      - name: Update Tag
+        if: steps.check.outputs.changed == 'true'
+        run: pnpm auto-update
+      - name: Get Tag
+        if: steps.check.outputs.changed == 'true'
+        id: version
+        run: echo "VERSION=$(node -p 'require(`./packages/hula-emojis/package.json`).version')" >> $GITHUB_ENV
+      - name: Commit Changes
+        if: steps.check.outputs.changed == 'true'
+        run: |
           git add .
           git commit -m "🍱 Update version to ${{ env.VERSION }}"
           git tag v${{ env.VERSION }}
           git push origin
           git push origin --tags
       - name: Publish Package
+        if: steps.check.outputs.changed == 'true'
         run: |
           cd packages/hula-emojis
-          pnpm build
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
