@@ -21,7 +21,6 @@ jobs:
       - run: pnpm install
       - run: |
           cd packages/hula-emojis
-          pnpm update
           pnpm build
           npm publish
         env:

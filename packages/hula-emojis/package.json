@@ -8,8 +8,7 @@
   "packageManager": "pnpm@9.15.4",
   "scripts": {
     "status": "tsx scripts/status.mts",
-    "build": "tsx scripts/build.mts && tsx scripts/status.mts",
-    "update": "tsx scripts/update.mts "
+    "build": "tsx scripts/update.mts && tsx scripts/build.mts && tsx scripts/status.mts"
   },
   "publishConfig": {
     "access": "public",
