@@ -15,7 +15,7 @@
 - 请确保代码风格一致，该部分由 `lint-staged` 和 `husky` 自动检查构成：
   > 注意：该项目提交信息**不完全遵循** [Angular 规范](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines)。
   > 项目提交信息大部分与 Angular 规范一致，但是 `header` 部分结合 [Gitmoji](https://gitmoji.dev/)，采用类似于 `🎉 项目初始化` 的格式。
-  > 如果你使用的是 JetBrains 系列 IDE，可以使用 [GitmojiPlusCommitButton(https://plugins.jetbrains.com/plugin/12383-gitmoji-plus-commit-button) 插件来帮助你生成提交信息。
+  > 如果你使用的是 JetBrains 系列 IDE，可以使用 [GitmojiPlusCommitButton](https://plugins.jetbrains.com/plugin/12383-gitmoji-plus-commit-button) 插件来帮助你生成提交信息。
 
 ## 目录结构
 
