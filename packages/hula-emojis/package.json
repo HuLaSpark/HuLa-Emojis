@@ -1,6 +1,6 @@
 {
   "name": "hula-emojis",
-  "version": "1.2.15",
+  "version": "1.2.16",
   "description": "The emojis package of Hula",
   "main": "dist/data.json",
   "types": "hula-emojis.d.ts",
