@@ -1,9 +1,8 @@
 /**
- * @file lib/Zhihu.ts
- * @description 知乎表情包处理
+ * 知乎表情包处理
  * @since 1.2.6
  */
-import { HulaEmojiData, HulaEmojiSeries } from "../hula-emojis.js";
+import type { HulaEmojiData, HulaEmojiSeries } from "../hula-emojis.js";
 import ora from "ora";
 import axios, { type AxiosResponse } from "axios";
 import { createHash } from "node:crypto";
@@ -76,68 +75,73 @@ function transData(data: ZhihuSticker): HulaEmojiSeries {
 
 /// 类型定义 ///
 /**
- * @description 知乎表情包Group返回数据
+ * 知乎表情包Group返回数据
  * @since 1.2.0
- * @api https://www.zhihu.com/api/v4/me/sticker-groups
- * @type ZhihuGroupResp
- * @property {ZhihuGroup[]} data 数据
+ * @remarks 接口 https://www.zhihu.com/api/v4/me/sticker-groups
  */
 declare type ZhihuGroupResp = {
-  data: ZhihuGroup[];
+  /** 数据 */
+  data: Array<ZhihuGroup>;
 };
 
 /**
- * @description 知乎表情包Group数据
+ * 知乎表情包Group数据
  * @since 1.2.0
- * @type ZhihuGroup
- * @property {string} id Group ID
- * @property {string} title Group 标题，需要转义，如："\u9ed8\u8ba4"=>"默认"
- * @property {string} icon_url Group 图标地址
- * @property {number} sticker_count Group 表情包数量
- * @property {number} version Group 版本
- * @property {string|null} selected_icon_url Group 选中图标地址
- * @property {string} type Group 类型 vip|official|emoji
  */
 declare type ZhihuGroup = {
+  /** Group ID */
   id: string;
+  /**
+   * Group 标题
+   * @remarks 需要转义，如："\u9ed8\u8ba4"=>"默认"
+   */
   title: string;
+  /** Group 图标地址 */
   icon_url: string;
+  /** Group 表情包数量 */
   sticker_count: number;
+  /** Group 版本 */
   version: number;
+  /** Group 选中图标地址 */
   selected_icon_url: string | null;
+  /**
+   * Group 类型
+   * @remarks vip|official|emoji
+   */
   type: string;
 };
 
 /**
- * @description 知乎表情包返回数据
+ * 知乎表情包返回数据
  * @since 1.2.0
- * @api https://www.zhihu.com/api/v4/sticker-groups/{id}
- * @type ZhihuStickerResp
- * @property {ZhihuSticker} data 数据
+ * @remarks 接口 https://www.zhihu.com/api/v4/sticker-groups/{id}
  */
 declare type ZhihuStickerResp = {
+  /** 数据 */
   data: ZhihuSticker;
 };
 
 /**
- * @description 知乎表情包数据
+ * 知乎表情包数据
  * @since 1.2.0
- * @type ZhihuSticker
- * @property {string} id 表情包ID
- * @property {string} title 表情包标题，需要转义
- * @property {string} icon_url 表情包图标地址
- * @property {number} version 表情包版本
- * @property {string} type 表情包类型
- * @property {ZhihuStickerItem[]} stickers 表情包列表
- * @property {string} selected_icon_url 表情包选中图标地址
  */
 declare type ZhihuSticker = {
+  /** 表情包ID */
   id: string;
+  /**
+   * 表情包标题
+   * @remarks 需要转义
+   */
   title: string;
+  /** 表情包图标地址 */
   icon_url: string;
+  /** 表情包版本 */
   version: number;
+  /** 表情包类型 */
   type: string;
-  stickers: ZhihuStickerItem[];
+  /** stickers */
+  stickers: Array<ZhihuStickerItem>;
+  /** 表情包选中图标地址 */
   selected_icon_url: string;
 };
 
@@ -152,9 +156,17 @@ declare type ZhihuSticker = {
  * @property {string} group_id 表情包Group ID
  */
 declare type ZhihuStickerItem = {
+  /** 表情包ID */
   id: string;
+  /**
+   * 表情包标题
+   * @remarks 需要转义
+   */
   title: string;
+  /** 表情包动态图地址 */
   dynamic_image_url: string | null;
+  /** 表情包静态图地址 */
   static_image_url: string;
+  /** 表情包Group ID */
   group_id: string;
 };

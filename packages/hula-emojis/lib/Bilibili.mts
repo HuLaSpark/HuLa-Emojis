@@ -1,6 +1,5 @@
 /**
- * @file lib/Bilibili.ts
- * @description Bilibili表情包处理
+ * Bilibili表情包处理
  * @since 1.2.6
  */
 
@@ -15,7 +14,7 @@ const spinner = ora("正在获取Bilibili表情包...").start();
 const start = Date.now();
 const api = "https://api.bilibili.com/x/emote/user/panel/web";
 const params = ["dynamic", "reply"];
-const rawData: BilibiliEmojiPackage[] = [];
+const rawData: Array<BilibiliEmojiPackage> = [];
 for (const param of params) {
   const resp = await axios.get<never, AxiosResponse<BilibiliEmojiResp>>(`${api}?business=${param}`);
   if (resp.data.code !== 0) {
@@ -87,126 +86,127 @@ function transData(data: BilibiliEmojiPackage): HulaEmojiSeries {
 
 /// 类型定义 ///
 /**
- * @description Bilibili表情包返回数据
+ * Bilibili表情包返回数据
  * @since 1.1.0
- * @api https://api.bilibili.com/x/emote/user/panel/web?business=${param}
- * @param "dynamic" 动态表情包
- * @param "reply" 评论表情包
- * @type BilibiliEmojiResp
- * @property {number} code 状态码
- * @property {string} message 状态信息
- * @property {number} ttl 有效期
- * @property {BilibiliEmojiData} data 数据
+ * @remarks
+ * 接口 https://api.bilibili.com/x/emote/user/panel/web?business=${param}
+ * 参数：
+ * - "dynamic" 动态表情包
+ * - "reply" 评论表情包
  */
 declare type BilibiliEmojiResp = {
+  /** 状态码 */
   code: number;
+  /** 状态信息 */
   message: string;
+  /** 有效期 */
   ttl: number;
+  /** 数据 */
   data: BilibiliEmojiData;
 };
 
 /**
- * @description Bilibili表情包数据
+ * Bilibili表情包数据
  * @since 1.1.0
- * @type BilibiliEmojiData
- * @property {BilibiliEmojiSetting} setting 设置
- * @property {BilibiliEmojiPackage[]} packages 包列表
  */
 declare type BilibiliEmojiData = {
+  /** 设置 */
   setting: BilibiliEmojiSetting;
-  packages: BilibiliEmojiPackage[];
+  /** 包列表 */
+  packages: Array<BilibiliEmojiPackage>;
 };
 
 /**
- * @description Bilibili表情包数据设置
+ * Bilibili表情包数据设置
  * @since 1.1.0
- * @type BilibiliEmojiSetting
- * @property {number} recent_limit 最近使用限制
- * @property {number} attr 未知属性
- * @property {number} focus_pkg_id 关注包ID
- * @property {string} schema SCHEMA地址
  */
 declare type BilibiliEmojiSetting = {
+  /** 最近使用限制 */
   recent_limit: number;
+  /** 未知属性 */
   attr: number;
+  /** 关注包ID */
   focus_pkg_id: number;
+  /** SCHEMA 地址 */
   schema: string;
 };
 
 /**
- * @description Bilibili表情包包
+ * Bilibili表情包
  * @since 1.1.0
- * @type BilibiliEmojiPackage
- * @property {number} id 包ID
- * @property {string} text 包名称
- * @property {string} url 包封面地址
- * @property {number} mtime 修改时间
- * @property {number} type 包类型
- * @property {number} attr 未知属性
- * @property {number} meta.size 包大小
- * @property {number} meta.item_id 包ID
- * @property {BilibiliEmojiItem[]} emote 包表情列表
- * @property {boolean} flags.added 是否已添加
- * @property {boolean} flags.preview 是否预览
- * @property {unknown} label 标签
- * @property {string} package_sub_title 包副标题
- * @property {number} ref_mid 引用ID
- * @property {number} resource_type 资源类型
  */
 declare type BilibiliEmojiPackage = {
+  /** 包ID */
   id: number;
+  /** 包名称 */
   text: string;
+  /** 包封面地址 */
   url: string;
+  /** 修改时间 */
   mtime: number;
+  /** 包类型 */
   type: number;
+  /** 未知属性 */
   attr: number;
+  /** 包元数据 */
   meta: {
+    /** 包大小 */
     size: number;
+    /** 包ID */
     item_id: number;
   };
-  emote: BilibiliEmojiItem[];
+  /** 包表情列表 */
+  emote: Array<BilibiliEmojiItem>;
+  /** 包判断符 */
   flags: {
+    /** 是否已添加 */
     added: boolean;
+    /** 是否预览 */
     preview: boolean;
   };
+  /** 标签 */
   label: unknown;
+  /** 包副标题 */
   package_sub_title: string;
+  /** 引用ID */
   ref_mid: number;
+  /** 资源类型 */
   resource_type: number;
 };
 
 /**
- * @description Bilibili表情包表情
+ * Bilibili表情包表情
  * @since 1.1.0
- * @type BilibiliEmojiItem
- * @property {number} id 表情ID
- * @property {number} package_id 包ID
- * @property {string} text 表情名称
- * @property {string} url 表情地址
- * @property {number} mtime 修改时间
- * @property {number} type 表情类型
- * @property {number} attr 未知属性
- * @property {number} meta.size 表情大小
- * @property {string[]} meta.suggest 关键词
- * @property {string} meta.alias 别名
- * @property {boolean} flags.unlocked 是否解锁
- * @property {unknown} activity 活动
  */
 declare type BilibiliEmojiItem = {
+  /** 表情ID */
   id: number;
+  /** 包ID */
   package_id: number;
+  /** 表情名称 */
   text: string;
+  /** 表情地址 */
   url: string;
+  /** 修改时间 */
   mtime: number;
+  /** 表情类型 */
   type: number;
+  /** 未知属性 */
   attr: number;
+  /** 表情元数据 */
   meta: {
+    /** 表情大小 */
     size: number;
-    suggest: string[];
+    /** 关键词 */
+    suggest: Array<string>;
+    /** 别名 */
     alias: string;
   };
+  /** 表情判断符 */
   flags: {
+    /** 是否解锁 */
     unlocked: boolean;
   };
+  /** 活动 */
   activity: unknown;
 };

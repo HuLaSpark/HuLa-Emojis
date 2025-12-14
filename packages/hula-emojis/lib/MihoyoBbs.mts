@@ -1,6 +1,5 @@
 /**
- * @file lib/MihoyoBbs.ts
- * @description 米游社表情包处理
+ * 米游社表情包处理
  * @since 1.2.6
  */
 
@@ -13,7 +12,7 @@ import { createHash } from "node:crypto";
 
 const spinner = ora("正在获取米游社表情包...").start();
 const start = Date.now();
-const resp = await axios.get<never, AxiosResponse<MihoyoBbsEmojiResp>>(
+const resp = await axios.get<never, AxiosResponse<MysEmojiResp>>(
   "https://bbs-api-static.miyoushe.com/misc/api/emoticon_set",
 );
 if (resp.data.retcode !== 0) {
@@ -47,7 +46,7 @@ spinner.info(`耗时: ${end - start}ms`);
 spinner.stop();
 
 /// 使用到的方法 ///
-function transData(data: EmojiSeries): HulaEmojiSeries {
+function transData(data: MysEmojiSeries): HulaEmojiSeries {
   const series: HulaEmojiSeries = {
     name: data.name,
     identifier: `mihoyo-bbs-${data.id}`,
@@ -72,96 +71,105 @@ function transData(data: EmojiSeries): HulaEmojiSeries {
 
 /// 类型定义 ///
 /**
- * @description 米游社表情包类型返回数据
- * @since 1.0.0
- * @api https://bbs-api-static.miyoushe.com/misc/api/emoticon_set
- * @type MihoyoBbsEmojiResp
- * @property {number} retcode 返回码
- * @property {string} message 返回信息
- * @property {EmojiResp} data 返回数据
+ * 米游社表情包类型返回响应
+ * @since 1.3.0
+ * @remarks 接口 https://bbs-api-static.miyoushe.com/misc/api/emoticon_set
  */
-type MihoyoBbsEmojiResp = {
+type MysEmojiResp = {
+  /** 返回码 */
   retcode: number;
+  /** 返回信息 */
   message: string;
-  data: EmojiResp;
+  /** 返回数据 */
+  data: MysEmojiRes;
 };
 
 /**
- * @description 表情包返回数据
- * @since 1.0.0
+ * 表情包返回数据
+ * @since 1.3.0
  * @api https://bbs-api-static.miyoushe.com/misc/api/emoticon_set
- * @type EmojiResp
- * @property {EmojiSeries[]} list 表情包列表
- * @property {unknown} recently_emoticon 最近使用表情包
  */
-type EmojiResp = {
-  list: EmojiSeries[];
+type MysEmojiRes = {
+  /** 表情包列表 */
+  list: Array<MysEmojiSeries>;
+  /** 最近使用表情包 */
   recently_emoticon: unknown;
 };
 
 /**
- * @description 表情包系列状态
- * @since 1.0.0
- * @type EmojiStatus
- *
+ * 表情包系列状态
+ * @since 1.3.0
+ * @type MysEmojiStatus
  */
-
-/* eslint-disable */
-enum EmojiStatus {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+enum MysEmojiStatus {
+  /** 草稿 */
   draft,
+  /** 已发布 */
   published,
 }
 
-/* eslint-enable */
+/**
+ * 表情包系列状态枚举
+ * @since 1.3.0
+ */
+type MysEmojiStatusEnum = keyof typeof MysEmojiStatus;
 
 /**
- * @description 表情包系列数据
- * @since 1.0.0
- * @type EmojiSeries
- * @property {number} id 表情包系列 ID
- * @property {string} name 表情包系列名称
- * @property {string} icon 表情包系列图标
- * @property {number} sort_order 排序
- * @property {number} num 表情包数量
- * @property {keyof typeof EmojiStatus} status 表情包状态
- * @property {Emoji[]} list 表情包列表
- * @property {number} updated_at 更新时间(秒级时间戳)
- * @property {boolean} is_available 是否可用
+ * 表情包系列数据
+ * @since 1.3.0
  */
-type EmojiSeries = {
+type MysEmojiSeries = {
+  /** 表情包系列 ID */
   id: number;
+  /** 表情包系列名称 */
   name: string;
+  /** 表情包系列图标 */
   icon: string;
+  /** 排序 */
   sort_order: number;
+  /** 表情包数量 */
   num: number;
-  status: keyof typeof EmojiStatus;
-  list: Emoji[];
+  /** 表情包状态 */
+  status: MysEmojiStatusEnum;
+  /** 表情包列表 */
+  list: MysEmoji[];
+  /**
+   * 更新时间
+   * @remarks 秒级时间戳
+   */
   updated_at: number;
+  /** 是否可用 */
   is_available: boolean;
 };
 
 /**
- * @description 表情包数据
- * @since 1.0.0
- * @type Emoji
- * @property {number} id 表情包 ID
- * @property {string} name 表情包名称
- * @property {string} icon 表情包图标
- * @property {number} sort_order 排序
- * @property {string} static_icon 静态表情包图标(GIF)
- * @property {string} updated_at 更新时间(秒级时间戳)
- * @property {boolean} is_available 是否可用
- * @property {keyof typeof EmojiStatus} status 表情包状态
- * @property {unknown[]} keywords 表情包关键词
+ * 表情包数据
+ * @since 1.3.0
  */
-type Emoji = {
+type MysEmoji = {
+  /** 表情包 ID */
   id: number;
+  /** 表情包名称 */
   name: string;
+  /** 表情包图标 */
   icon: string;
+  /** 排序 */
   sort_order: number;
+  /**
+   * 静态表情包图标
+   * @remarks GIF类型
+   */
   static_icon: string;
+  /**
+   * 更新时间
+   * @remarks 秒级时间戳
+   */
   updated_at: string;
+  /** 是否可用 */
   is_available: boolean;
-  status: keyof typeof EmojiStatus;
-  keywords: unknown[];
+  /** 表情包状态 */
+  status: MysEmojiStatusEnum;
+  /** 表情包关键词 */
+  keywords: Array<unknown>;
 };
