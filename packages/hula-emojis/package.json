@@ -5,7 +5,7 @@
   "main": "dist/data.json",
   "types": "hula-emojis.d.ts",
   "type": "module",
-  "packageManager": "pnpm@10.0.0",
+  "packageManager": "pnpm@10.25.0",
   "scripts": {
     "status": "tsx scripts/status.mts",
     "build": "tsx scripts/update.mts && tsx scripts/build.mts && tsx scripts/status.mts"
@@ -24,13 +24,13 @@
   ],
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
-    "@types/node": "^22.10.7",
+    "@types/node": "^25.0.2",
     "app-root-path": "^3.1.0",
-    "axios": "^1.7.9",
-    "fs-extra": "^11.3.0",
+    "axios": "^1.13.2",
+    "fs-extra": "^11.3.2",
     "markdown-table-ts": "^1.0.3",
-    "ora": "^8.1.1",
-    "tsx": "^4.19.2",
-    "typescript": "^5.7.3"
+    "ora": "^9.0.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
   }
 }

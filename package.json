@@ -1,7 +1,7 @@
 {
   "name": "hula-emojis-monorepo",
   "version": "1.0.0",
-  "packageManager": "pnpm@10.0.0",
+  "packageManager": "pnpm@10.25.0",
   "description": "The monorepo of Hula Emojis",
   "repository": {
     "type": "git",
@@ -35,26 +35,26 @@
     "node": ">=22.0.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.18.0",
+    "@eslint/js": "^9.39.2",
     "@types/fs-extra": "^11.0.4",
-    "eslint": "^9.18.0",
-    "eslint-plugin-vue": "^9.32.0",
-    "fs-extra": "^11.3.0",
-    "globals": "^15.14.0",
+    "eslint": "^9.39.2",
+    "eslint-plugin-vue": "^10.6.2",
+    "fs-extra": "^11.3.2",
+    "globals": "^16.5.0",
     "husky": "^9.1.7",
-    "lerna": "^8.1.9",
-    "lint-staged": "^15.4.1",
-    "ora": "^8.1.1",
-    "prettier": "^3.4.2",
-    "stylelint": "^16.13.2",
+    "lerna": "^9.0.3",
+    "lint-staged": "^16.2.7",
+    "ora": "^9.0.0",
+    "prettier": "^3.7.4",
+    "stylelint": "^16.26.1",
     "stylelint-config-idiomatic-order": "^10.0.0",
     "stylelint-config-standard-vue": "^1.0.0",
     "stylelint-declaration-block-no-ignored-properties": "^2.8.0",
-    "stylelint-high-performance-animation": "^1.10.0",
-    "stylelint-order": "^6.0.4",
-    "stylelint-prettier": "^5.0.2",
-    "stylelint-scss": "^6.10.1",
-    "tsx": "^4.19.2",
-    "typescript-eslint": "^8.20.0"
+    "stylelint-high-performance-animation": "^1.11.0",
+    "stylelint-order": "^7.0.0",
+    "stylelint-prettier": "^5.0.3",
+    "stylelint-scss": "^6.13.0",
+    "tsx": "^4.21.0",
+    "typescript-eslint": "^8.49.0"
   }
 }
