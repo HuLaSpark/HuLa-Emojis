@@ -56,5 +56,3 @@ jobs:
         run: |
           cd packages/hula-emojis
           npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
