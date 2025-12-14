@@ -108,9 +108,6 @@ importers:
       app-root-path:
         specifier: ^3.1.0
         version: 3.1.0
-      axios:
-        specifier: ^1.13.2
-        version: 1.13.2
       fs-extra:
         specifier: ^11.3.2
         version: 11.3.2

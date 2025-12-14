@@ -3,20 +3,20 @@
  * @since 1.2.6
  */
 
-import axios, { type AxiosResponse } from "axios";
 import fs from "fs-extra";
 import ora from "ora";
 import type { HulaEmojiData, HulaEmojiSeries } from "../hula-emojis.d.ts";
 import { getRelativePath } from "../utils/getRelativePath.mjs";
 import { createHash } from "node:crypto";
 
+const MysEmojiApi: Readonly<string> = "https://bbs-api-static.miyoushe.com/misc/api/emoticon_set";
+
 const spinner = ora("正在获取米游社表情包...").start();
 const start = Date.now();
-const resp = await axios.get<never, AxiosResponse<MysEmojiResp>>(
-  "https://bbs-api-static.miyoushe.com/misc/api/emoticon_set",
-);
-if (resp.data.retcode !== 0) {
-  spinner.fail(`获取米游社表情包失败: ${resp.data.retcode} - ${resp.data.message}`);
+const resp = await fetch(MysEmojiApi);
+const respJson = (await resp.json()) as MysEmojiResp;
+if (respJson.retcode !== 0) {
+  spinner.fail(`获取米游社表情包失败: ${respJson.retcode} - ${respJson.message}`);
   process.exit(1);
 }
 spinner.succeed("获取米游社表情包成功");
@@ -28,7 +28,7 @@ const bbsEmojiData: HulaEmojiData = {
   updateTime: Date.now(),
   series: [],
 };
-for (const seriesItem of resp.data.data.list) {
+for (const seriesItem of respJson.data.list) {
   if (!seriesItem.is_available || seriesItem.num === 0) continue;
   bbsEmojiData.series.push(transData(seriesItem));
 }

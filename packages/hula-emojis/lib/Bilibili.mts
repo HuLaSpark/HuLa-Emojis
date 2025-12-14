@@ -3,26 +3,27 @@
  * @since 1.2.6
  */
 
-import axios, { type AxiosResponse } from "axios";
 import fs from "fs-extra";
 import ora from "ora";
 import type { HulaEmojiData, HulaEmojiSeries } from "../hula-emojis.js";
 import { getRelativePath } from "../utils/getRelativePath.mjs";
 import { createHash } from "node:crypto";
 
+const BiliEmoijApi: Readonly<string> = "https://api.bilibili.com/x/emote/user/panel/web";
+const BiliEmojiParams: ReadonlyArray<string> = ["dynamic", "reply"];
+
 const spinner = ora("正在获取Bilibili表情包...").start();
 const start = Date.now();
-const api = "https://api.bilibili.com/x/emote/user/panel/web";
-const params = ["dynamic", "reply"];
 const rawData: Array<BilibiliEmojiPackage> = [];
-for (const param of params) {
-  const resp = await axios.get<never, AxiosResponse<BilibiliEmojiResp>>(`${api}?business=${param}`);
-  if (resp.data.code !== 0) {
-    spinner.fail(`获取Bilibili表情包失败: ${resp.data.code} - ${resp.data.message}`);
+for (const param of BiliEmojiParams) {
+  const resp = await fetch(`${BiliEmoijApi}?business=${param}`);
+  const respJson = (await resp.json()) as BilibiliEmojiResp;
+  if (respJson.code !== 0) {
+    spinner.fail(`获取Bilibili表情包失败: ${respJson.code} - ${respJson.message}`);
     process.exit(1);
   }
   spinner.succeed(`获取Bilibili${param === "dynamic" ? "动态" : "回复"}表情包成功`);
-  const packages = resp.data.data.packages;
+  const packages = respJson.data.packages;
   for (const pkg of packages) {
     const check = rawData.find((item) => item.id === pkg.id);
     if (check) continue;
@@ -58,7 +59,7 @@ spinner.stop();
 
 /// 使用到的方法 ///
 /**
- * @description 转换数据
+ * 转换数据
  * @since 1.1.0
  * @param {BilibiliEmojiPackage} data 数据
  * @returns {HulaEmojiSeries} 转换后数据

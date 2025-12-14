@@ -4,23 +4,23 @@
  */
 import type { HulaEmojiData, HulaEmojiSeries } from "../hula-emojis.js";
 import ora from "ora";
-import axios, { type AxiosResponse } from "axios";
 import { createHash } from "node:crypto";
 import { getRelativePath } from "../utils/getRelativePath.mjs";
 import fs from "fs-extra";
 
-const groupApi: Readonly<string> = "https://www.zhihu.com/api/v4/me/sticker-groups";
-const stickerApi: string = "https://www.zhihu.com/api/v4/sticker-groups/{id}";
+const ZhihuGroupApi: Readonly<string> = "https://www.zhihu.com/api/v4/me/sticker-groups";
+const ZhihuStickerApi: string = "https://www.zhihu.com/api/v4/sticker-groups/{id}";
 
 const spinner = ora("正在获取知乎表情包数据...").start();
 const start = Date.now();
 const groupSet = new Set<string>();
-const groupResp = await axios.get<never, AxiosResponse<ZhihuGroupResp>>(groupApi);
-if (groupResp.data.data.length === 0) {
+const groupResp = await fetch(ZhihuGroupApi);
+const groupJson = (await groupResp.json()) as ZhihuGroupResp;
+if (groupJson.data.length === 0) {
   spinner.fail("获取知乎表情包Group失败");
   process.exit(1);
 }
-groupResp.data.data.map((item) => groupSet.add(item.id));
+groupJson.data.map((item) => groupSet.add(item.id));
 spinner.succeed("获取知乎表情包Group成功");
 const res: HulaEmojiData = {
   name: "知乎表情包",
@@ -31,13 +31,12 @@ const res: HulaEmojiData = {
 };
 for (const groupId of groupSet) {
   spinner.start(`正在获取Group ${groupId} 数据...`);
-  const resp = await axios.get<never, AxiosResponse<ZhihuStickerResp>>(
-    stickerApi.replace("{id}", groupId),
-  );
-  if (resp.data.data.stickers.length === 0) continue;
+  const resp = await fetch(ZhihuStickerApi.replace("{id}", groupId));
+  const respJson = (await resp.json()) as ZhihuStickerResp;
+  if (respJson.data.stickers.length === 0) continue;
   spinner.succeed(`获取Group ${groupId} 数据成功`);
   spinner.start(`正在处理Group ${groupId} 数据...`);
-  res.series.push(transData(resp.data.data));
+  res.series.push(transData(respJson.data));
   spinner.succeed(`处理Group ${groupId} 数据完成`);
 }
 res.version = createHash("md5").update(JSON.stringify(res.series)).digest("hex");
