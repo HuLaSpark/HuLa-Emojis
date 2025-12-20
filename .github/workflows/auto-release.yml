@@ -49,10 +49,14 @@ jobs:
           git add .
           git commit -m "🍱 Update version to ${{ env.VERSION }}"
           git tag v${{ env.VERSION }}
-          git push origin
-          git push origin --tags
       - name: Publish Package
         if: steps.check.outputs.changed == 'true'
         run: |
           cd packages/hula-emojis
           npm publish
+          echo "::set-output name=pub::true"
+      - name: Push Commits
+        if: steps.check.outputs.pub == 'true'
+        run: |
+          git push origin
+          git push origin --tags
