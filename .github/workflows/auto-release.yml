@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '23'
+          node-version: '24'
           registry-url: 'https://registry.npmjs.org'
           always-auth: true
       - name: Setup pnpm
@@ -54,6 +54,7 @@ jobs:
         if: steps.check.outputs.changed == 'true'
         run: |
           cd packages/hula-emojis
+          npm ci
           npm publish --access public
           echo "::set-output name=pub::true"
       - name: Push Commits
