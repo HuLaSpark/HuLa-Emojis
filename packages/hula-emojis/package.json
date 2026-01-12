@@ -1,11 +1,11 @@
 {
   "name": "hula-emojis",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "The emojis package of Hula",
   "main": "dist/data.json",
   "types": "hula-emojis.d.ts",
   "type": "module",
-  "packageManager": "pnpm@10.25.0",
+  "packageManager": "pnpm@10.28.0",
   "scripts": {
     "status": "tsx scripts/status.mts",
     "build": "tsx scripts/update.mts && tsx scripts/build.mts && tsx scripts/status.mts"
@@ -28,9 +28,9 @@
   ],
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
-    "@types/node": "^25.0.2",
+    "@types/node": "^25.0.6",
     "app-root-path": "^3.1.0",
-    "fs-extra": "^11.3.2",
+    "fs-extra": "^11.3.3",
     "markdown-table-ts": "^1.0.3",
     "ora": "^9.0.0",
     "tsx": "^4.21.0",
