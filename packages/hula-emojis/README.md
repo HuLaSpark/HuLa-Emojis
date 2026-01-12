@@ -111,6 +111,7 @@ type HulaEmojiData = {
 - [米游社](https://bbs.mihoyo.com/ys/)
 - [Bilibili](https://www.bilibili.com/)
 - [知乎](https://www.zhihu.com/)
+- [小黑盒](https://www.xiaoheihe.cn/app/bbs/home)
 
 ## LICENSE
 
