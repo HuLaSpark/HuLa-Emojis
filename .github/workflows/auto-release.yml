@@ -35,7 +35,7 @@ jobs:
       - name: Check for Changes
         id: check
         run: |
-          git diff --exit-code || (echo "::set-output name=changed::true" && git diff)
+          git diff --exit-code || (echo "changed=true" >> $GITHUB_OUTPUT && git diff)
       - name: Update Tag
         if: steps.check.outputs.changed == 'true'
         run: pnpm auto-update
@@ -50,15 +50,16 @@ jobs:
           git commit -m "🍱 Update version to ${{ env.VERSION }}"
           git tag v${{ env.VERSION }}
       - name: Publish Package
+        id: publish
         if: steps.check.outputs.changed == 'true'
         run: |
           cd packages/hula-emojis
           npm i
           npm ci
           npm publish --access public
-          echo "::set-output name=pub::true"
+          echo "pub=true" >> $GITHUB_OUTPUT
       - name: Push Commits
-        if: steps.check.outputs.pub == 'true'
+        if: steps.publish.outputs.pub == 'true'
         run: |
           git push origin
           git push origin --tags
