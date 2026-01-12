@@ -54,7 +54,7 @@ jobs:
         if: steps.check.outputs.changed == 'true'
         run: |
           cd packages/hula-emojis
-          npm publish
+          npm publish --access public
           echo "::set-output name=pub::true"
       - name: Push Commits
         if: steps.check.outputs.pub == 'true'
